@@ -1,4 +1,4 @@
-package com.alibaba.fastjson;
+package com.cjf.fastjson;
 
 
 //下面是FastJson的简介：常用的方法！
@@ -11,6 +11,10 @@ package com.alibaba.fastjson;
 //  public static final String toJSONString(Object object); // 将JavaBean序列化为JSON文本
 //  public static final String toJSONString(Object object, boolean prettyFormat); // 将JavaBean序列化为带格式的JSON文本
 //  public static final Object toJSON(Object javaObject); 将JavaBean转换为JSONObject或者JSONArray（和上面方法的区别是返回值是不一样的）
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;

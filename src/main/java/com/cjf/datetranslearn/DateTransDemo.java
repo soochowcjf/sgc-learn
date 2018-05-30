@@ -1,4 +1,4 @@
-package com.alibaba.DateTransLearn;
+package com.cjf.datetranslearn;
 
 import org.junit.Test;
 

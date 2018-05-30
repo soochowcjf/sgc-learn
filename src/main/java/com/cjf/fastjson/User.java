@@ -1,17 +1,13 @@
-package com.alibaba.fastjson;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.cjf.fastjson;
 
 /**
  * author:chenjinfeng
  * Date:2018/5/28
- * Time:21:55
+ * Time:21:39
  */
-public class Group {
+public class User {
     private int id;
     private String name;
-    private List<User> list = new ArrayList<User>();
 
     public int getId() {
         return id;
@@ -28,13 +24,4 @@ public class Group {
     public void setName(String name) {
         this.name = name;
     }
-
-    public List<User> getList() {
-        return list;
-    }
-
-    public void setList(List<User> list) {
-        this.list = list;
-    }
-
 }

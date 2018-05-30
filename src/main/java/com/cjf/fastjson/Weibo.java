@@ -1,4 +1,4 @@
-package com.alibaba.fastjson;
+package com.cjf.fastjson;
 
 /**
  * author:chenjinfeng
