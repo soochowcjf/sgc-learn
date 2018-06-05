@@ -154,6 +154,14 @@ public class JsonDemo {
             System.out.println(weibo);
         }
         /**
+         * JSONArray js = jsonObject.getJSONArray("js");
+         * List<Weibo> list1 = JSONObject.parseArray(js.toJSONString(), Weibo.class);
+         * for (Weibo weibo : list1) {
+         *    System.out.println(weibo);
+         * }
+         */
+
+        /**
          * 输出：Weibo{id='110000', city='北#001京市'}
          *      Weibo{id='110000', city='北#002京市'}
          *      Weibo{id='110000', city='北#002京市'}
@@ -250,6 +258,22 @@ public class JsonDemo {
         System.out.println(jsonObject.toString());
         /**
          * 输出：  {"tels":"[\"15850061614\",\"15850061411\"]"}
+         */
+    }
+    @Test
+    public void fun3() {
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.add("15850061614");
+        jsonArray.add("15850061411");
+        jsonArray.add("15850068888");
+        Object[] objects = jsonArray.toArray();
+        for (Object object : objects) {
+            System.out.println(object.toString());
+        }
+        /**
+         * 15850061614
+         * 15850061411
+         * 15850068888
          */
     }
 
