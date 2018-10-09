@@ -17,6 +17,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -277,4 +278,158 @@ public class JsonDemo {
          */
     }
 
+    /**
+     * [
+     *   {
+     *     "provinceName": "江苏省",
+     *     "cities": [
+     *       {
+     *         "cityName": "苏州市",
+     *         "district": [
+     *           {
+     *             "name": "苏州市一号店"
+     *           },
+     *           {
+     *             "name": "苏州市二号店"
+     *           }
+     *         ]
+     *       },
+     *       {
+     *         "cityName": "南京市",
+     *         "district": [
+     *           {
+     *             "name": "南京市一号店"
+     *           },
+     *           {
+     *             "name": "南京市二号店"
+     *           }
+     *         ]
+     *       }
+     *     ]
+     *   },
+     *   {
+     *     "provinceName": "北京市",
+     *     "cities": [
+     *       {
+     *         "cityName": "北京市",
+     *         "district": [
+     *           {
+     *             "name": "北京市一号店"
+     *           },
+     *           {
+     *             "name": "北京市二号店"
+     *           }
+     *         ]
+     *       }
+     *     ]
+     *   }
+     * ]
+     */
+    @Test
+    public void fun4() {
+        ArrayList<Store> stores = new ArrayList<Store>(){{
+            add(new Store("北京市一号店"));
+            add(new Store("北京市二号店"));
+        }};
+        //创建City对象
+        City city = new City();
+        city.setCityName("北京市");
+        city.setDistrict(stores);
+
+        //city集合
+        ArrayList<City> cities = new ArrayList<City>(){{
+            add(city);
+        }};
+
+        //创建Province对象
+        Province province = new Province();
+        province.setProvinceName("北京市");
+        province.setCities(cities);
+
+        //jsonArray
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.add(province);
+
+        String s = JSONObject.toJSONString(jsonArray);
+        System.out.println(s);
+
+//        HashMap<String,Object> cityMap = new HashMap<>();
+//        cityMap.put("cityName","北京市");
+//        //添加市下面的经销商
+//        ArrayList<Store> stores = new ArrayList<Store>(){{
+//            add(new Store("北京市一号店"));
+//            add(new Store("北京市二号店"));
+//        }};
+//        cityMap.put("district",stores);
+//
+//        HashMap<String,Object> provinceMap = new HashMap<>();
+//        provinceMap.put("provinceName","北京市");
+        //添加省下面的市
+//        ArrayList<HashMap<String,Object>> citiesMap = new ArrayList<HashMap<String, Object>>() {{
+//           add(cityMap);
+//        }};
+//        provinceMap.put("cities",provinceMap);
+//
+//        String s = JSONObject.toJSONString(provinceMap);
+//        System.out.println(s);
+
+    }
+
+    public static class Province {
+        private String provinceName;
+        private List<City> cities;
+
+        public String getProvinceName() {
+            return provinceName;
+        }
+
+        public void setProvinceName(String provinceName) {
+            this.provinceName = provinceName;
+        }
+
+        public List<City> getCities() {
+            return cities;
+        }
+
+        public void setCities(List<City> cities) {
+            this.cities = cities;
+        }
+    }
+
+    public static class City {
+        private String cityName;
+        private List<Store> district;
+
+        public String getCityName() {
+            return cityName;
+        }
+
+        public void setCityName(String cityName) {
+            this.cityName = cityName;
+        }
+
+        public List<Store> getDistrict() {
+            return district;
+        }
+
+        public void setDistrict(List<Store> district) {
+            this.district = district;
+        }
+    }
+
+    public static class Store {
+        private String name;
+
+        public Store(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 }
