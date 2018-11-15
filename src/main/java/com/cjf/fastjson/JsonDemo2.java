@@ -59,4 +59,43 @@ public class JsonDemo2 {
                     '}';
         }
     }
+
+    @Test
+    public void testJson() {
+        String str = "[\n" +
+                "    {\n" +
+                "        \"provinceName\":\"江苏省\",\n" +
+                "        \"cities\":[\n" +
+                "            {\n" +
+                "                \"cityName\":\"苏州市\"，\n" +
+                "                \"district\":[\n" +
+                "                    {\"name\":\"苏州市一号店\"}，\n" +
+                "                    {\"name\":\"苏州市二号店\"}\n" +
+                "                ]\n" +
+                "            }，\n" +
+                "            {\n" +
+                "                \"cityName\":\"南京市\"，\n" +
+                "                \"district\":[\n" +
+                "                    {\"name\":\"南京市一号店\"}，\n" +
+                "                    {\"name\":\"南京市二号店\"}\n" +
+                "                ]\n" +
+                "            }\n" +
+                "        ]\n" +
+                "    }，\n" +
+                "    {\n" +
+                "        \"provinceName\":\"北京市\",\n" +
+                "        \"cities\":[\n" +
+                "            {\n" +
+                "                \"cityName\":\"北京市\"，\n" +
+                "                \"district\":[\n" +
+                "                    {\"name\":\"北京市一号店\"}，\n" +
+                "                    {\"name\":\"北京市二号店\"}\n" +
+                "                ]\n" +
+                "            }\n" +
+                "        ]\n" +
+                "    }\n" +
+                "]";
+
+        new JSONObject();
+    }
 }
