@@ -1,0 +1,18 @@
+[
+  {
+    "cities": [
+      {
+        "cityName": "北京市",
+        "district": [
+          {
+            "name": "北京市一号店"
+          },
+          {
+            "name": "北京市二号店"
+          }
+        ]
+      }
+    ],
+    "provinceName": "北京市"
+  }
+]
