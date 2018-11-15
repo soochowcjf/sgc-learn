@@ -1,4 +1,4 @@
-package com.cjf.netty.chapter1;
+package com.cjf.netty.chapter2;
 
 import java.io.IOException;
 import java.io.InputStream;
