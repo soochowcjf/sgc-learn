@@ -1,5 +1,6 @@
 package com.cjf.netty.chapter3;
 
+import com.cjf.netty.chapter12.connection.ConnectionCountHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -27,6 +28,7 @@ public class EchoServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) {
+                            ch.pipeline().addLast(new ConnectionCountHandler());
                             ch.pipeline().addLast(new EchoServerHandler());
                             //..
                         }
