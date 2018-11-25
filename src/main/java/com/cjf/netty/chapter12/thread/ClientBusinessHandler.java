@@ -26,11 +26,13 @@ public class ClientBusinessHandler extends SimpleChannelInboundHandler<ByteBuf> 
                     Thread.sleep(2000);
                 }
             }
-
         } catch (InterruptedException ignored) {
         }
     });
 
+    /**
+     * 连接成功后回调该方法，每秒钟向服务端写当前时间戳
+     */
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
         ctx.executor().scheduleAtFixedRate(() -> {

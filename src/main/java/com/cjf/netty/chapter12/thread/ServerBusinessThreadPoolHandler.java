@@ -21,6 +21,8 @@ public class ServerBusinessThreadPoolHandler extends ServerBusinessHandler {
     protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) {
         ByteBuf data = Unpooled.directBuffer();
         data.writeBytes(msg);
+
+        //耗时的操作交给线程池
         threadPool.submit(() -> {
             Object result = getResult(data);
             ctx.channel().writeAndFlush(result);

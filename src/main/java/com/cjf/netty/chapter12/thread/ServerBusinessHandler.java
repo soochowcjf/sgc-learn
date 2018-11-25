@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @ChannelHandler.Sharable
 public class ServerBusinessHandler extends SimpleChannelInboundHandler<ByteBuf> {
-    public static final ChannelHandler INSTANCE = new ServerBusinessHandler();
+    static final ChannelHandler INSTANCE = new ServerBusinessHandler();
 
 
     @Override

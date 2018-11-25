@@ -22,17 +22,20 @@ public class Client {
     public void start(int port) throws Exception {
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
         final Bootstrap bootstrap = new Bootstrap();
-        bootstrap.group(eventLoopGroup);
-        bootstrap.channel(NioSocketChannel.class);
-        bootstrap.option(ChannelOption.SO_REUSEADDR, true);
-        bootstrap.handler(new ChannelInitializer<SocketChannel>() {
-            @Override
-            protected void initChannel(SocketChannel ch) {
-                ch.pipeline().addLast(new FixedLengthFrameDecoder(Long.BYTES));
-                ch.pipeline().addLast(ClientBusinessHandler.INSTANCE);
-            }
-        });
+        bootstrap.group(eventLoopGroup).
+                channel(NioSocketChannel.class)
+                .option(ChannelOption.SO_REUSEADDR, true)
+                .handler(new ChannelInitializer<SocketChannel>() {
+                    @Override
+                    protected void initChannel(SocketChannel ch) {
+                        ch.pipeline().addLast(new FixedLengthFrameDecoder(Long.BYTES));
+                        ch.pipeline().addLast(ClientBusinessHandler.INSTANCE);
+                    }
+                });
 
+        /**
+         * 创建1000个连接去连接服务端
+         */
         for (int i = 0; i < 1000; i++) {
             bootstrap.connect(SERVER_HOST, port).get();
         }
