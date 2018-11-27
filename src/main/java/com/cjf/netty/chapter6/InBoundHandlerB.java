@@ -18,6 +18,8 @@ public class InBoundHandlerB extends ChannelInboundHandlerAdapter {
     }
 
     /**
+     * channelActive表示有新连接接入的时候触发
+     *
      * PipeLine 的 fireChannelRead()方法，是从链表的头结点开始传播，head
      */
     @Override
