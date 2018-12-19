@@ -195,17 +195,8 @@ public class Demo1 {
     }
 
     @Test
-    public void isSmsBlack() {
-//        String str = "a23bc";
-//        String str = "a23bc/";
-        String str = "=12323";
-//        ^(?![^a-zA-Z]+$)(?!\D+$)
-//        (?![0-9]+$)(?![a-zA-Z]+$)[\da-zA-Z]+
-//        ^(?!\d+$)[\da-zA-Z]+$
-        String regex = "(?![0-9]+$)(?![\\D]+$)[\\d\\D]+";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(str);
-        System.out.println(matcher.matches());
+    public void fun() {
+        System.out.println("abc".matches("[^tTdD]*"));
     }
 
 }
