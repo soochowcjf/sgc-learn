@@ -1,14 +1,14 @@
 package com.cjf.nio.socketnio;
 
-import org.junit.Test;
-
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.*;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -21,22 +21,21 @@ import java.util.Iterator;
 public class TestNonBlockingNio {
     /**
      * 一、使用 NIO 完成网络通信的三个核心：
-     *
+     * <p>
      * 1. 通道（Channel）：负责连接
-     *
-     * 	   java.nio.channels.Channel 接口：
-     * 			|--SelectableChannel
-     * 				|--SocketChannel
-     * 				|--ServerSocketChannel
-     * 				|--DatagramChannel
-     *
-     * 				|--Pipe.SinkChannel
-     * 				|--Pipe.SourceChannel
-     *
+     * <p>
+     * java.nio.channels.Channel 接口：
+     * |--SelectableChannel
+     * |--SocketChannel
+     * |--ServerSocketChannel
+     * |--DatagramChannel
+     * <p>
+     * |--Pipe.SinkChannel
+     * |--Pipe.SourceChannel
+     * <p>
      * 2. 缓冲区（Buffer）：负责数据的存取
-     *
+     * <p>
      * 3. 选择器（Selector）：是 SelectableChannel 的多路复用器。用于监控 SelectableChannel 的 IO 状况
-     *
      */
 //    @Test
     public static void client() throws Exception {
@@ -57,42 +56,32 @@ public class TestNonBlockingNio {
         socketChannel.close();
     }
 
-//    @Test
+    //    @Test
     public static void server() throws IOException {
+
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
-        //切换到非阻塞模式
         serverSocketChannel.configureBlocking(false);
-        // 绑定连接
         serverSocketChannel.bind(new InetSocketAddress(9898));
-        //获取选择器
         Selector selector = Selector.open();
-        //注册选择器
-        serverSocketChannel.register(selector,SelectionKey.OP_ACCEPT);
-        //轮询式的获取选择器上已经注册的事件
-        while (selector.select() > 0 ) {
-            //获取当前选择器上注册的事件
+        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+        while (selector.select() > 0) {
             Iterator<SelectionKey> it = selector.selectedKeys().iterator();
             while (it.hasNext()) {
                 SelectionKey selectionKey = it.next();
-                //判断具体是什么事件准备就绪
                 if (selectionKey.isAcceptable()) {
-                    //若“接收就绪”，获取客户端连接
                     SocketChannel socketChannel = serverSocketChannel.accept();
-                    //切换到非阻塞模式
                     socketChannel.configureBlocking(false);
-                    //将该通道注册到选择器上
-                    socketChannel.register(selector,SelectionKey.OP_READ);
-                }else if (selectionKey.isReadable()) {
+                    socketChannel.register(selector, SelectionKey.OP_READ);
+                } else if (selectionKey.isReadable()) {
                     SocketChannel socketChannel = (SocketChannel) selectionKey.channel();
                     ByteBuffer buffer = ByteBuffer.allocate(1024);
-                    int len = 0;
+                    int len;
                     while ((len = socketChannel.read(buffer)) != -1) {
                         buffer.flip();
-                        System.out.println(new String(buffer.array(),0,len));
+                        System.out.println(new String(buffer.array(), 0, len));
                         buffer.clear();
                     }
                 }
-                // 取消选择键 SelectionKey
                 it.remove();
             }
         }

@@ -6,6 +6,8 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.util.AttributeKey;
+import io.netty.util.CharsetUtil;
 
 /**
  * created by cjf 22:29 2018/10/31
@@ -13,13 +15,28 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 public class SimpleServer {
 
     public static void main(String[] args) throws Exception {
+
+        //boss负责连接的监听，accept
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        //work处理连接上传输的数据，真正的io线程
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup)
+                    //设置反射出来的服务端channel的类型
                     .channel(NioServerSocketChannel.class)
+                    //给服务端的channel设置属性
+                    .option(ChannelOption.SO_BACKLOG, 1024)
+                    //给客户端的channel设置属性
+                    .childOption(ChannelOption.SO_KEEPALIVE, true)
+                    .childOption(ChannelOption.TCP_NODELAY, true)
+                    //给服务端的channel添加一些自定义属性
+                    .attr(AttributeKey.newInstance("serverName"), "nettyServer")
+                    //给客户端的channel添加一些自定义属性
+                    .childAttr(AttributeKey.newInstance("clientKey"), "clientValue")
+                    //添加服务端的handler
                     .handler(new SimpleServerHandler())
+                    //添加客户端的handler
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
@@ -65,7 +82,10 @@ public class SimpleServer {
             }
         }
 
-        private boolean paas(ByteBuf password) {
+        private boolean paas(ByteBuf msg) {
+            ByteBuf in = (ByteBuf) msg;
+            System.out.println(
+                    "Server received: " + in.toString(CharsetUtil.UTF_8));
             return false;
         }
     }
