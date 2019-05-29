@@ -3,7 +3,7 @@ package com.cjf.generic;
 public class GenericTest {
 
     //这个类是个泛型类，在上面已经介绍过
-    public class Generic<T> {
+    public static class Generic<T> {
         private T key;
 
         public Generic(T key) {
@@ -43,7 +43,7 @@ public class GenericTest {
     }
 
     //这也不是一个泛型方法，这就是一个普通的方法，只是使用了Generic<Number>这个泛型类做形参而已。
-    public void showKeyValue1(Generic<Number> obj) {
+    public static void showKeyValue1(Generic<? extends Number> obj) {
         System.out.println("泛型测试 key value is " + obj.getKey());
     }
 
@@ -73,6 +73,15 @@ public class GenericTest {
 
     public static void main(String[] args) {
 
+        Generic<String> generic1 = new Generic<String>("11111");
+        Generic<Integer> generic2 = new Generic<Integer>(2222);
+        Generic<Float> generic3 = new Generic<Float>(2.4f);
+        Generic<Double> generic4 = new Generic<Double>(2.56);
 
+        //这一行代码编译器会提示错误，因为String类型并不是Number类型的子类
+//        showKeyValue1(generic1);
+        showKeyValue1(generic2);
+        showKeyValue1(generic3);
+        showKeyValue1(generic4);
     }
 }

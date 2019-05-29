@@ -37,6 +37,23 @@ public class GenericFruit {
         public <T> void show_2(T t) {
             System.out.println(t.toString());
         }
+
+        //泛型方法和可变参数
+        public <T> void printMsg( T... args){
+            for(T t : args){
+                System.out.println(("泛型测试 t is " + t));
+            }
+        }
+
+        /**
+         * 如果在类中定义使用泛型的静态方法，需要添加额外的泛型声明（将这个方法定义成泛型方法）
+         * 即使静态方法要使用泛型类中已经声明过的泛型也不可以。
+         * 如：public static void show(T t){..},此时编译器会提示错误信息：
+         "StaticGenerator cannot be refrenced from static context"
+         */
+        public static <T> void show(T t){
+
+        }
     }
 
     public static void main(String[] args) {
@@ -56,5 +73,7 @@ public class GenericFruit {
         //使用这两个方法也都可以成功
         generateTest.show_3(apple);
         generateTest.show_3(person);
+
+        generateTest.printMsg("123",123,55.55);
     }
 }
