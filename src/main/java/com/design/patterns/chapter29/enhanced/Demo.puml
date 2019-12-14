@@ -1,0 +1,48 @@
+@startuml
+
+'abstract class AbstractList
+'abstract AbstractCollection
+'interface List
+'interface Collection
+'
+'List <|-- AbstractList
+'Collection <|-- AbstractCollection
+'
+'Collection <|- List
+'AbstractCollection <|- AbstractList
+'AbstractList <|-- ArrayList
+'
+'class ArrayList {
+'Object[] elementData
+'size()
+'}
+'
+'enum TimeUnit {
+'DAYS
+'HOURS
+'MINUTES
+'}
+
+abstract class Corp {
+    Product Product
+    Corp(Product Product)
+    makeMoney()
+}
+class ShanZhaiCorp
+class HouseCorp
+
+abstract Product {
+    beProduced()
+    beSold()
+}
+
+class IPod
+
+Corp o- Product
+Corp <|-- ShanZhaiCorp
+Corp <|-- HouseCorp
+Product <|-- IPod
+
+
+
+@enduml
