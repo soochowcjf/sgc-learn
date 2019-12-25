@@ -8,7 +8,7 @@
     <artifactId>fastjsontest</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <netty-all.version>4.1.6.Final</netty-all.version>
