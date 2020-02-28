@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.alibaba.fastjsontest</groupId>
-    <artifactId>fastjsontest</artifactId>
+    <groupId>com.cjf.learn</groupId>
+    <artifactId>sgc-learn</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>jar</packaging>
@@ -108,7 +108,7 @@
             <!--<appendAssemblyId>false</appendAssemblyId>-->
             <!--<archive>-->
             <!--<manifest>-->
-            <!--<mainClass>com.cjf.netty.chapter12.connection.Server</mainClass>-->
+            <!--<mainClass>com.netty.chapter12.connection.Server</mainClass>-->
             <!--</manifest>-->
             <!--</archive>-->
             <!--<descriptorRefs>-->
@@ -129,7 +129,7 @@
             <!--<appendAssemblyId>false</appendAssemblyId>-->
             <!--<archive>-->
             <!--<manifest>-->
-            <!--<mainClass>com.cjf.netty.chapter12.connection.Client</mainClass>-->
+            <!--<mainClass>com.netty.chapter12.connection.Client</mainClass>-->
             <!--</manifest>-->
             <!--</archive>-->
             <!--<descriptorRefs>-->
