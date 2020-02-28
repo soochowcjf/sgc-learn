@@ -1,4 +1,4 @@
-package com.cjf.hutool.number;
+package com.hutool.number;
 
 import java.math.BigDecimal;
 

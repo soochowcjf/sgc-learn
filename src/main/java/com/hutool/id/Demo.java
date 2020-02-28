@@ -1,4 +1,4 @@
-package com.cjf.hutool.id;
+package com.hutool.id;
 
 import cn.hutool.core.lang.Snowflake;
 import cn.hutool.core.util.IdUtil;

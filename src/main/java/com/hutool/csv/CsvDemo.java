@@ -1,4 +1,4 @@
-package com.cjf.hutool.csv;
+package com.hutool.csv;
 
 import org.junit.Test;
 

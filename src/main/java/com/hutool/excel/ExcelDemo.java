@@ -1,4 +1,4 @@
-package com.cjf.hutool.excel;
+package com.hutool.excel;
 
 import cn.hutool.poi.excel.BigExcelWriter;
 import cn.hutool.poi.excel.ExcelUtil;

@@ -1,4 +1,4 @@
-package com.cjf.hutool.convert;
+package com.hutool.convert;
 
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;

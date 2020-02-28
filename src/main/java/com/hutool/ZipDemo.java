@@ -1,4 +1,4 @@
-package com.cjf.hutool;
+package com.hutool;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.cjf.hutool.clone;
+package com.hutool.clone;
 
 import cn.hutool.core.clone.CloneRuntimeException;
 import cn.hutool.core.clone.Cloneable;

@@ -1,4 +1,4 @@
-package com.cjf.hutool.io;
+package com.hutool.io;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.IoUtil;

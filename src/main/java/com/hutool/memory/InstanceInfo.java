@@ -1,4 +1,4 @@
-package com.cjf.hutool.memory;
+package com.hutool.memory;
 
 import java.util.Date;
 
