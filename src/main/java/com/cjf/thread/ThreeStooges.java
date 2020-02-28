@@ -1,6 +1,6 @@
 package com.cjf.thread;
 
-import jdk.nashorn.internal.ir.annotations.Immutable;
+//import jdk.nashorn.internal.ir.annotations.Immutable;
 
 import java.util.HashSet;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.Vector;
  *
  * @author Brian Goetz and Tim Peierls
  */
-@Immutable
+//@Immutable
 public final class ThreeStooges {
     private final Set<String> stooges = new HashSet<String>();
 
