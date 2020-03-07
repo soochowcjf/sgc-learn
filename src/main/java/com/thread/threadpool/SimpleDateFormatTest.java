@@ -1,4 +1,4 @@
-package com.cjf.threadpool;
+package com.thread.threadpool;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

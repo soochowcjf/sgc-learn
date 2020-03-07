@@ -1,4 +1,4 @@
-package com.cjf.threadpool;
+package com.thread.threadpool;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

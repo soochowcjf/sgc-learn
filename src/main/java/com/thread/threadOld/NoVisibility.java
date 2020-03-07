@@ -1,4 +1,4 @@
-package com.cjf.thread;
+package com.thread.threadOld;
 
 /**
  * created by cjf 10:55 2019/1/27
