@@ -1,5 +1,8 @@
 package com.thread.semaphore;
 
+import org.junit.Test;
+
+import java.nio.ByteBuffer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
@@ -43,4 +46,35 @@ public class UseSemaphore {
     }
 
 
+    public static int getHeaderLength(int length) {
+        return length & 0xFFFFFF;
+    }
+
+    @Test
+    public void fun() {
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Double.class.getCanonicalName());
+        System.out.println(double.class.getCanonicalName());
+        System.out.println(1 << 0);
+
+        byte[] bytes = new byte[9];
+        bytes[8] = 3;
+        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
+        int length = byteBuffer.limit();
+        int oriHeaderLen = byteBuffer.getInt();
+        int headerLength = getHeaderLength(oriHeaderLen);
+
+        System.out.println(length);
+        System.out.println(oriHeaderLen);
+        System.out.println(headerLength);
+    }
+
+    @Test
+    public void fun1() {
+        String addr = "192.168.25.1:80/test";
+        int index = addr.lastIndexOf("/");
+        if (index >= 0) {
+            System.out.println(addr.substring(index + 1));
+        }
+    }
 }  
