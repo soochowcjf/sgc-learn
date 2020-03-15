@@ -1,12 +1,52 @@
-package com.java8.day01;
+package com.java8.day02;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.Properties;
 
 /**
  * @author cjf on 2020/3/3 22:46
  */
 public class OptionalDemo {
+
+    private static Properties props = new Properties();
+
+    static {
+        props.setProperty("a", "5");
+        props.setProperty("b", "true");
+        props.setProperty("c", "-3");
+    }
+
+    public static Optional<Integer> stringToInt(String s) {
+        try {
+            return Optional.of(Integer.parseInt(s));
+        } catch (NumberFormatException e) {
+            return Optional.empty();
+        }
+    }
+
+    public int readDuration(Properties props, String name) {
+        String value = props.getProperty(name);
+        if (value != null) {
+            try {
+                int i = Integer.parseInt(value);
+                if (i > 0) {
+                    return i;
+                }
+            } catch (NumberFormatException nfe) {
+                nfe.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    public int readDurationV2(Properties props, String name) {
+        return Optional.ofNullable(props.getProperty(name))
+                .flatMap(OptionalDemo::stringToInt)
+                .filter(i -> i > 0)
+                .orElse(0);
+    }
+
 
     public static void main(String[] args) {
         //创建Optional实例，也可以通过方法返回值得到。

@@ -79,4 +79,24 @@ public class ZipDemo {
         return false;
     }
 
+    @Test
+    public void fun1() {
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MAX_VALUE + 1);
+        int i = Math.abs(Integer.MAX_VALUE + 1);
+        System.out.println(i < 0);
+        System.out.println(-i);
+        System.out.println(Math.abs(-5));
+        System.out.println(Math.abs(Integer.MAX_VALUE));
+
+    }
+
+    @Test
+    public void fun2() {
+        final char NAME_VALUE_SEPARATOR = 1;
+        final char PROPERTY_SEPARATOR = 2;
+        System.out.println(NAME_VALUE_SEPARATOR);
+        System.out.println(PROPERTY_SEPARATOR);
+    }
+
 }

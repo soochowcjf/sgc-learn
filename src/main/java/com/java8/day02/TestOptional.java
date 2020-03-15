@@ -92,4 +92,51 @@ public class TestOptional {
                 .orElse(new Godness("苍老师"))
                 .getName();
     }
+
+    @Test
+    public void test7() {
+        Optional<Godness> godness = Optional.ofNullable(new Godness());
+
+        Optional<NewMan> man = Optional.ofNullable(new NewMan(godness));
+
+        String unknow = man.flatMap(NewMan::getGodness)
+                .map(Godness::getName)
+                .orElse("unknow");
+        System.out.println(unknow);
+    }
+
+    public Optional<Insurance> nullSafeFindCheapestInsurance(
+            Optional<NewMan> person, Optional<Godness> car) {
+        return person.flatMap(p -> car.map(c -> findCheapestInsurance(p, c)));
+    }
+
+    private Insurance findCheapestInsurance(NewMan p, Godness c) {
+        return null;
+    }
+
+
+    public class Person {
+        private Optional<Car> car;
+
+        public Optional<Car> getCar() {
+            return car;
+        }
+    }
+
+    public class Car {
+        private Optional<Insurance> insurance;
+
+        public Optional<Insurance> getInsurance() {
+            return insurance;
+        }
+    }
+
+    public class Insurance {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+    }
+
 }
