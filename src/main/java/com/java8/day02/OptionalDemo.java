@@ -25,6 +25,13 @@ public class OptionalDemo {
         }
     }
 
+    /**
+     * 普通写法
+     *
+     * @param props
+     * @param name
+     * @return
+     */
     public int readDuration(Properties props, String name) {
         String value = props.getProperty(name);
         if (value != null) {
@@ -40,6 +47,13 @@ public class OptionalDemo {
         return 0;
     }
 
+    /**
+     * optional写法
+     *
+     * @param props
+     * @param name
+     * @return
+     */
     public int readDurationV2(Properties props, String name) {
         return Optional.ofNullable(props.getProperty(name))
                 .flatMap(OptionalDemo::stringToInt)
