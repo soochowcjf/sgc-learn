@@ -79,6 +79,19 @@ public class Shop {
         return completableFuture;
     }
 
+
+    public String getPrice3(String product) {
+        double price = calculatePrice3(product);
+        Discount.Code code = Discount.Code.values()[
+                random.nextInt(Discount.Code.values().length)];
+        return String.format("%s:%.2f:%s", name, price, code);
+    }
+
+    private double calculatePrice3(String product) {
+        delay();
+        return random.nextDouble() * product.charAt(0) + product.charAt(1);
+    }
+
     /**
      * getPriceAsync改造，生产者方法会交由ForkJoinPool池中的某个执行线程执行
      * 生产者方法

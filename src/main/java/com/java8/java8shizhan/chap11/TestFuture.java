@@ -139,4 +139,36 @@ public class TestFuture {
     /**
      * 构造同步和异步操作，见java8实战
      */
+    public List<String> findPrices3(String product) {
+        List<CompletableFuture<String>> priceFutures =
+                shops.stream()
+                        .map(shop -> CompletableFuture.supplyAsync(
+                                () -> shop.getPrice3(product), executor))
+                        .map(future -> future.thenApply(Quote::parse))
+                        // thenCompose 方法允许你对两个异步操作进行流水线，第一个操作完成时，将其
+                        //结果作为参数传递给第二个操作。换句话说，你可以创建两个 CompletableFutures 对象，对
+                        //第一个 CompletableFuture 对象调用 thenCompose ，并向其传递一个函数。当第一个
+                        //CompletableFuture 执行完毕后，它的结果将作为该函数的参数，这个函数的返回值是以第一
+                        //个 CompletableFuture 的返回做输入计算出的第二个 CompletableFuture 对象。
+                        .map(future -> future.thenCompose(quote ->
+                                CompletableFuture.supplyAsync(
+                                        () -> Discount.applyDiscount(quote), executor)))
+                        .collect(Collectors.toList());
+        return priceFutures.stream()
+                .map(CompletableFuture::join)
+                .collect(Collectors.toList());
+    }
+
+
+    //合并两个独立的 CompletableFuture
+//    @Test
+//    public void fun4() {
+//        Future<Double> futurePriceInUSD =
+//                CompletableFuture.supplyAsync(() -> shop.getPrice(product))
+//                        .thenCombine(
+//                                CompletableFuture.supplyAsync(
+//                                        () -> exchangeService.getRate(Money.EUR, Money.USD)),
+//                                (price, rate) -> price * rate
+//                        );
+//    }
 }
