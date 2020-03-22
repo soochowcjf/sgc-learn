@@ -1,11 +1,6 @@
-package com.cjf.guavacache;
+package com.cjf.guava.cache;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-import com.google.common.cache.RemovalListener;
-import com.google.common.cache.RemovalNotification;
+import com.google.common.cache.*;
 import org.junit.Test;
 
 import java.util.ArrayList;

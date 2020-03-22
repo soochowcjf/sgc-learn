@@ -159,6 +159,15 @@ public class TestFuture {
                 .collect(Collectors.toList());
     }
 
+    @Test
+    public void fun4() {
+        long start = System.currentTimeMillis();
+        List<String> iphone12 = findPrices3("iphone12");
+        long end = System.currentTimeMillis();
+        System.out.println(iphone12);
+        System.out.println(end - start);
+    }
+
 
     //合并两个独立的 CompletableFuture
 //    @Test
