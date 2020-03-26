@@ -1,4 +1,4 @@
-package com.thread.threadOld;
+package com.concurrentpractice.chapter3;
 
 //import jdk.nashorn.internal.ir.annotations.Immutable;
 
@@ -29,7 +29,7 @@ public final class ThreeStooges {
         ThreeStooges threeStooges = new ThreeStooges();
         System.out.println(threeStooges.getStoogeNames());
         threeStooges.stooges.add("chenjinfeng");
-        System.out.println(threeStooges.getStoogeNames());
+        System.out.println(threeStooges.stooges);
     }
 
     public boolean isStooge(String name) {

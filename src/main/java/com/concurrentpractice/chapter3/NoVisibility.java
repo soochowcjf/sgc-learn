@@ -1,4 +1,4 @@
-package com.thread.threadOld;
+package com.concurrentpractice.chapter3;
 
 /**
  * created by cjf 10:55 2019/1/27
