@@ -1,4 +1,4 @@
-package com.thread;
+package com.thread.waitnotify;
 
 
 import org.junit.Test;
