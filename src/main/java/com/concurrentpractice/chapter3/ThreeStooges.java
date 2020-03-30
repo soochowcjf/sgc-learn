@@ -3,9 +3,7 @@ package com.concurrentpractice.chapter3;
 //import jdk.nashorn.internal.ir.annotations.Immutable;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.Vector;
 
 /**
  * ThreeStooges
@@ -17,7 +15,7 @@ import java.util.Vector;
  */
 //@Immutable
 public final class ThreeStooges {
-    private final Set<String> stooges = new HashSet<String>();
+    private final Set<String> stooges = new HashSet<>();
 
     public ThreeStooges() {
         stooges.add("Moe");
@@ -27,7 +25,6 @@ public final class ThreeStooges {
 
     public static void main(String[] args) {
         ThreeStooges threeStooges = new ThreeStooges();
-        System.out.println(threeStooges.getStoogeNames());
         threeStooges.stooges.add("chenjinfeng");
         System.out.println(threeStooges.stooges);
     }
@@ -36,11 +33,4 @@ public final class ThreeStooges {
         return stooges.contains(name);
     }
 
-    public String getStoogeNames() {
-        List<String> stooges = new Vector<String>();
-        stooges.add("Moe");
-        stooges.add("Larry");
-        stooges.add("Curly");
-        return stooges.toString();
-    }
 }
