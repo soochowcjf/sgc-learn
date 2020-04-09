@@ -7,7 +7,7 @@ import com.design.refactor.chapter1.ver5.Movie;
  *
  * @author cjf on 2020/4/9 18:45
  */
-public class RegularPrice implements Price {
+public class RegularPrice extends Price {
     @Override
     public double getCharge(int daysRented) {
         double result = 2;
