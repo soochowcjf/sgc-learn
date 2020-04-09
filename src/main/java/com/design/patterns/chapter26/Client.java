@@ -6,6 +6,7 @@ package com.design.patterns.chapter26;
 public class Client {
     public static void main(String[] args) {
         Lift lift = new Lift();
+        lift.setState(ILift.STOPPING_STATE);
         lift.open();
         lift.close();
         lift.run();

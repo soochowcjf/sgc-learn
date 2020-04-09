@@ -112,6 +112,6 @@ public class Lift implements ILift {
     }
 
     private void stopWithoutLogic() {
-        System.out.println("电梯门关闭。。。");
+        System.out.println("电梯停止。。");
     }
 }

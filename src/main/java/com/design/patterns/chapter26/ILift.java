@@ -8,19 +8,19 @@ public interface ILift {
     /**
      * 敞门状态
      */
-    public final static int OPENING_STATE = 1;
+    int OPENING_STATE = 1;
     /**
      * 闭门状态
      */
-    public final static int CLOSING_STATE = 2;
+    int CLOSING_STATE = 2;
     /**
      * 运行状态
      */
-    public final static int RUNNING_STATE = 3;
+    int RUNNING_STATE = 3;
     /**
      * 停止状态
      */
-    public final static int STOPPING_STATE = 4;
+    int STOPPING_STATE = 4;
 
     /**
      * 设置状态
