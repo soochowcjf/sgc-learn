@@ -1,7 +1,6 @@
 package com.design.refactor.chapter1.ver5.impl;
 
 import com.design.refactor.chapter1.ver5.Movie;
-import com.design.refactor.chapter1.ver5.Price;
 
 /**
  * 新片

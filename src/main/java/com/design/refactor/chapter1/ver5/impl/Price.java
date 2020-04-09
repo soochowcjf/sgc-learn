@@ -1,4 +1,4 @@
-package com.design.refactor.chapter1.ver5;
+package com.design.refactor.chapter1.ver5.impl;
 
 /**
  * 状态模式

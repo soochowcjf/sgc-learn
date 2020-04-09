@@ -2,6 +2,7 @@ package com.design.refactor.chapter1.ver5;
 
 import com.design.refactor.chapter1.ver5.impl.ChildrensPrice;
 import com.design.refactor.chapter1.ver5.impl.NewReleasePrice;
+import com.design.refactor.chapter1.ver5.impl.Price;
 import com.design.refactor.chapter1.ver5.impl.RegularPrice;
 
 /**
