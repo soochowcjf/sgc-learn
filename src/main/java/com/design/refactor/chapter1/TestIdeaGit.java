@@ -5,4 +5,5 @@ package com.design.refactor.chapter1;
  */
 public class TestIdeaGit {
 
+    //测试git提交
 }
