@@ -14,20 +14,27 @@ import java.util.concurrent.atomic.AtomicReference;
 @ThreadSafe
 public class CasNumberRange {
     private final AtomicReference<IntPair> values =
-            new AtomicReference<IntPair>(new IntPair(0, 0));
+            new AtomicReference<>(new IntPair(0, 0));
 
     public int getLower() {
         return values.get().lower;
     }
 
+    /**
+     * 结合使用compareAndSet()方法，可以实现原子性，避免了竞态条件
+     *
+     * @param i
+     */
     public void setLower(int i) {
         while (true) {
             IntPair oldv = values.get();
-            if (i > oldv.upper)
+            if (i > oldv.upper) {
                 throw new IllegalArgumentException("Can't set lower to " + i + " > upper");
+            }
             IntPair newv = new IntPair(i, oldv.upper);
-            if (values.compareAndSet(oldv, newv))
+            if (values.compareAndSet(oldv, newv)) {
                 return;
+            }
         }
     }
 
@@ -38,14 +45,19 @@ public class CasNumberRange {
     public void setUpper(int i) {
         while (true) {
             IntPair oldv = values.get();
-            if (i < oldv.lower)
+            if (i < oldv.lower) {
                 throw new IllegalArgumentException("Can't set upper to " + i + " < lower");
+            }
             IntPair newv = new IntPair(oldv.lower, i);
-            if (values.compareAndSet(oldv, newv))
+            if (values.compareAndSet(oldv, newv)) {
                 return;
+            }
         }
     }
 
+    /**
+     * 使用不可变对象，会存在丢失更新操作
+     */
     @Immutable
     private static class IntPair {
         // INVARIANT: lower <= upper
