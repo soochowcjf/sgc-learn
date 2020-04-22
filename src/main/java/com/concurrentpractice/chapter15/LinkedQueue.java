@@ -14,10 +14,8 @@ import java.util.concurrent.atomic.AtomicReference;
 public class LinkedQueue<E> {
 
     private final LinkedQueue.Node<E> dummy = new LinkedQueue.Node<E>(null, null);
-    private final AtomicReference<LinkedQueue.Node<E>> head
-            = new AtomicReference<LinkedQueue.Node<E>>(dummy);
-    private final AtomicReference<LinkedQueue.Node<E>> tail
-            = new AtomicReference<LinkedQueue.Node<E>>(dummy);
+    private final AtomicReference<LinkedQueue.Node<E>> head = new AtomicReference<>(dummy);
+    private final AtomicReference<LinkedQueue.Node<E>> tail = new AtomicReference<>(dummy);
 
     public boolean put(E item) {
         LinkedQueue.Node<E> newNode = new LinkedQueue.Node<E>(item, null);
@@ -26,12 +24,12 @@ public class LinkedQueue<E> {
             LinkedQueue.Node<E> tailNext = curTail.next.get();
             if (curTail == tail.get()) {
                 if (tailNext != null) {
-                    // Queue in intermediate state, advance tail
+                    // 队列处于中间状态，推进尾结点
                     tail.compareAndSet(curTail, tailNext);
                 } else {
-                    // In quiescent state, try inserting new node
+                    // 处于稳定状态，尝试插入新节点
                     if (curTail.next.compareAndSet(null, newNode)) {
-                        // Insertion succeeded, try advancing tail
+                        // 插入操作成功，尝试推进尾结点
                         tail.compareAndSet(curTail, newNode);
                         return true;
                     }
@@ -46,7 +44,7 @@ public class LinkedQueue<E> {
 
         public Node(E item, LinkedQueue.Node<E> next) {
             this.item = item;
-            this.next = new AtomicReference<LinkedQueue.Node<E>>(next);
+            this.next = new AtomicReference<>(next);
         }
     }
 }
