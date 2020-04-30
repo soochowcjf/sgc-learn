@@ -21,4 +21,12 @@ class Account {
             target.balance.setValue(to + amt, txn);
         });
     }
+
+    public static void main(String[] args) {
+        Account from = new Account(10000);
+        Account to = new Account(5000);
+        from.transfer(to, 1000);
+
+
+    }
 }
