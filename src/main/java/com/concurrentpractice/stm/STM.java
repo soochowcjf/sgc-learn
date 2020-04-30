@@ -1,5 +1,8 @@
 package com.concurrentpractice.stm;
 
+/**
+ * Software	Transactional Memory，软件事务内存
+ */
 public final class STM {
 
     //提交数据需要⽤到的全局锁
