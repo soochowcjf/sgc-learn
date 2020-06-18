@@ -25,6 +25,7 @@ public class LocalVar {
                 .forEach((var s) -> {
                     System.out.println("Hello, " + s);
                 });
+
     }
 
     @Test
