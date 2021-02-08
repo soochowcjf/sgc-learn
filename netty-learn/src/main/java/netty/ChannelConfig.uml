@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>io.netty.channel.socket.nio.NioServerSocketChannel.NioServerSocketChannelConfig</OriginalElement>
+  <nodes>
+    <node x="460.0" y="80.0">io.netty.channel.socket.ServerSocketChannelConfig</node>
+    <node x="73.08333333333331" y="240.0">io.netty.channel.socket.nio.NioSocketChannel.NioSocketChannelConfig</node>
+    <node x="349.0833333333333" y="240.0">io.netty.channel.socket.nio.NioServerSocketChannel.NioServerSocketChannelConfig</node>
+    <node x="0.0" y="80.0">io.netty.channel.socket.SocketChannelConfig</node>
+    <node x="254.0" y="0.0">io.netty.channel.ChannelConfig</node>
+    <node x="57.083333333333314" y="160.0">io.netty.channel.socket.DefaultSocketChannelConfig</node>
+    <node x="226.0" y="80.0">io.netty.channel.DefaultChannelConfig</node>
+    <node x="333.0833333333333" y="160.0">io.netty.channel.socket.DefaultServerSocketChannelConfig</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="io.netty.channel.socket.SocketChannelConfig" target="io.netty.channel.ChannelConfig">
+      <point x="0.0" y="-15.0" />
+      <point x="100.0" y="55.0" />
+      <point x="279.3333333333333" y="55.0" />
+      <point x="-50.666666666666686" y="15.0" />
+    </edge>
+    <edge source="io.netty.channel.socket.DefaultSocketChannelConfig" target="io.netty.channel.DefaultChannelConfig">
+      <point x="64.0" y="-15.0" />
+      <point x="249.08333333333331" y="135.0" />
+      <point x="278.0" y="135.0" />
+      <point x="-52.0" y="15.0" />
+    </edge>
+    <edge source="io.netty.channel.socket.ServerSocketChannelConfig" target="io.netty.channel.ChannelConfig">
+      <point x="0.0" y="-15.0" />
+      <point x="584.0" y="55.0" />
+      <point x="380.66666666666663" y="55.0" />
+      <point x="50.66666666666663" y="15.0" />
+    </edge>
+    <edge source="io.netty.channel.DefaultChannelConfig" target="io.netty.channel.ChannelConfig">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="io.netty.channel.socket.DefaultServerSocketChannelConfig" target="io.netty.channel.socket.ServerSocketChannelConfig">
+      <point x="76.0" y="-15.0" />
+      <point x="561.0833333333333" y="135.0" />
+      <point x="584.0" y="135.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="io.netty.channel.socket.nio.NioSocketChannel.NioSocketChannelConfig" target="io.netty.channel.socket.DefaultSocketChannelConfig">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="io.netty.channel.socket.nio.NioServerSocketChannel.NioServerSocketChannelConfig" target="io.netty.channel.socket.DefaultServerSocketChannelConfig">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="io.netty.channel.socket.DefaultSocketChannelConfig" target="io.netty.channel.socket.SocketChannelConfig">
+      <point x="-64.0" y="-15.0" />
+      <point x="121.08333333333331" y="135.0" />
+      <point x="100.0" y="135.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="io.netty.channel.socket.DefaultServerSocketChannelConfig" target="io.netty.channel.DefaultChannelConfig">
+      <point x="-76.0" y="-15.0" />
+      <point x="409.0833333333333" y="135.0" />
+      <point x="382.0" y="135.0" />
+      <point x="52.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="354.0" y="135.0" />
+  <SelectedNodes>
+    <node>io.netty.channel.socket.DefaultServerSocketChannelConfig</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
